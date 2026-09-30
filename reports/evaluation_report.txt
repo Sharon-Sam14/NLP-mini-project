@@ -1,0 +1,5 @@
+=== Evaluation Summary ===
+Evaluated Samples: 50
+D1 BLEU Score: 6.38
+D1 Exact Match: 0.00%
+Latency: 0.501s

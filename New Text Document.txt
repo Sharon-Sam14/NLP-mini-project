@@ -1,0 +1,449 @@
+You are working on a college NLP mini-project called:
+
+"Malayalam Tourist Translation & Transliteration System"
+
+Create the project documentation files:
+
+1. PRD.md
+2. Architecture.md
+3. Rules.md
+4. Phases.md
+5. Design.md
+
+Do NOT create Memory.md initially. Memory.md will be created and updated after implementation begins.
+
+==================================================
+PROJECT CONCEPT
+==================================================
+
+The project is an NLP-based tourism communication system supporting four directions:
+
+1. English → Malayalam
+2. Malayalam → English
+3. Manglish → English
+4. English → Manglish
+
+Definition:
+
+Manglish means Malayalam written using English/Roman characters.
+
+Example:
+
+English:
+"I need a taxi."
+
+Malayalam:
+"എനിക്ക് ഒരു ടാക്സി വേണം."
+
+Manglish:
+"Enikku oru taxi venam."
+
+The application should be focused on tourist communication in Kerala.
+
+Tourism categories include:
+
+- Hotel / Accommodation
+- Food / Restaurant
+- Transportation
+- Directions
+- Shopping
+- Sightseeing
+- Emergency
+- General Conversation
+
+==================================================
+IMPORTANT ACADEMIC REQUIREMENT
+==================================================
+
+This is an NLP mini-project.
+
+The documentation MUST connect the project to the NLP experiments performed in the course.
+
+Use these concepts:
+
+Experiment 1 — String Processing
+- Unicode string handling
+- character and word operations
+- splitting/joining
+- replacement
+- word counting
+- case handling for English/Manglish
+- Malayalam Unicode preservation
+
+Experiment 2 — Text Preprocessing
+- tokenization
+- normalization
+- filtering
+- punctuation handling
+- whitespace handling
+- Malayalam-aware preprocessing
+
+Experiment 3 — Regular Expressions
+- numbers
+- prices
+- currency
+- phone numbers
+- URLs
+- special patterns
+
+Experiment 4 — N-gram Model
+- bigram model
+- trigram model
+- next-word prediction
+- use as a language-model baseline
+
+Experiment 5 — Chunking and Named Entity Recognition
+- noun phrases
+- locations
+- hotels
+- restaurants
+- people
+- organizations
+- dates
+- money
+- tourism-related entities
+
+Experiment 6 — HMM / Viterbi / POS
+- use as an NLP sequence-model/POS-tagging component where technically feasible
+- do not force this component into translation if it does not provide useful functionality
+
+Experiment 7 — Word Sense Disambiguation
+- implement/use Lesk-style WSD where appropriate
+- demonstrate ambiguity using context
+- explain how WSD can support translation
+
+Experiment 8 — Word Cloud and Exploratory Data Analysis
+- analyze tourism corpus
+- word frequency
+- word clouds
+- category distribution
+- vocabulary analysis
+- suggest additional EDA techniques
+
+The documentation should explicitly explain how these experiments contribute to the final project.
+
+==================================================
+TRANSLATION ARCHITECTURE
+==================================================
+
+Use the following conceptual architecture.
+
+English → Malayalam:
+
+English
+→ preprocessing
+→ translation model
+→ Malayalam
+→ post-processing
+
+Malayalam → English:
+
+Malayalam
+→ preprocessing
+→ translation model
+→ English
+→ post-processing
+
+Malayalam → Manglish:
+
+Malayalam
+→ transliteration
+→ Manglish
+
+English → Manglish:
+
+English
+→ English-to-Malayalam translation
+→ Malayalam-to-Manglish transliteration
+→ Manglish
+
+Manglish → English:
+
+Manglish
+→ Manglish-to-Malayalam normalization/transliteration
+→ Malayalam-to-English translation
+→ English
+
+Do NOT describe Manglish as an independent natural language.
+
+Treat Manglish as Romanized Malayalam.
+
+==================================================
+TRANSLATION MODEL
+==================================================
+
+The documentation should allow the implementation to use a pretrained multilingual translation model rather than training a large translation model from scratch.
+
+IndicTrans2 is an example of an appropriate model family because it supports English and Malayalam.
+
+Do not claim that the team trained IndicTrans2 from scratch.
+
+If fine-tuning is later performed, document it separately.
+
+==================================================
+DATASET
+==================================================
+
+The documentation must define:
+
+1. General English-Malayalam parallel corpus
+2. Tourism-specific English-Malayalam dataset
+3. Manglish-Malayalam paired dataset
+4. Test datasets for all supported directions
+
+Recommended structure:
+
+data/
+├── raw/
+├── processed/
+├── tourism/
+└── test/
+
+Potential dataset sources may include AI4Bharat resources such as Samanantar/BPCC.
+
+The documentation MUST require recording:
+- dataset name
+- source
+- license
+- number of sentence pairs
+- preprocessing performed
+- train/validation/test split
+
+Do not fabricate dataset sizes.
+
+==================================================
+EVALUATION
+==================================================
+
+The project must be measurable.
+
+Evaluate:
+
+English → Malayalam
+Malayalam → English
+Manglish → English
+English → Manglish
+
+Possible metrics:
+
+- BLEU
+- chrF if available
+- exact/acceptable match for curated tourist phrases
+- category classification accuracy
+- NER precision/recall/F1 where applicable
+- response time
+
+Do not invent evaluation results.
+
+The final report must contain actual measured values.
+
+==================================================
+PRD.md
+==================================================
+
+Create a detailed Product Requirements Document containing:
+
+1. Project overview
+2. Problem statement
+3. Motivation
+4. Target users
+5. Goals
+6. Supported translation directions
+7. Tourism categories
+8. Functional requirements
+9. NLP requirements
+10. Dataset requirements
+11. Translation requirements
+12. Evaluation requirements
+13. User workflow
+14. Non-functional requirements
+15. Non-goals
+16. Success criteria
+17. Future scope
+
+Include concrete examples for all four translation directions.
+
+==================================================
+Architecture.md
+==================================================
+
+Document:
+
+1. High-level architecture
+2. System components
+3. Data flow
+4. Translation pipeline
+5. Manglish pipeline
+6. Preprocessing pipeline
+7. NER pipeline
+8. WSD pipeline
+9. N-gram baseline
+10. EDA pipeline
+11. Evaluation pipeline
+12. Suggested technology stack
+13. Dataset structure
+14. Folder structure
+15. Module responsibilities
+
+Include Mermaid diagrams where useful.
+
+Suggested stack:
+
+Python
+Pandas
+NLTK
+spaCy where appropriate
+Hugging Face Transformers
+PyTorch
+Streamlit
+Matplotlib
+SacreBLEU/NLTK BLEU
+
+Do not add unnecessary technologies.
+
+==================================================
+RULES.md
+==================================================
+
+Create development rules covering:
+
+1. Academic integrity
+2. Dataset licensing
+3. No fabricated results
+4. No fabricated translations
+5. Malayalam Unicode handling
+6. Manglish normalization
+7. Translation model usage
+8. Preprocessing rules
+9. NER rules
+10. WSD rules
+11. N-gram rules
+12. Evaluation rules
+13. Error handling
+14. AI coding assistant rules
+15. Testing rules
+16. Documentation rules
+
+AI coding rules:
+
+- Inspect existing code before editing.
+- Do not rewrite working modules unnecessarily.
+- Make one logical change at a time.
+- Run validation after changes.
+- Do not invent files, APIs, dataset columns, or model outputs.
+- Do not claim an experiment is implemented unless it actually works.
+- Maintain Memory.md after implementation begins.
+- Preserve reproducibility.
+
+==================================================
+PHASES.md
+==================================================
+
+Divide development into manageable phases.
+
+Use approximately:
+
+Phase 1 — Project setup
+Phase 2 — Dataset collection
+Phase 3 — Dataset cleaning
+Phase 4 — Text preprocessing
+Phase 5 — Regex processing
+Phase 6 — EDA / Word Cloud
+Phase 7 — N-gram baseline
+Phase 8 — NER / Chunking
+Phase 9 — WSD
+Phase 10 — Translation engine
+Phase 11 — Manglish transliteration/normalization
+Phase 12 — Four-direction translation pipeline
+Phase 13 — Evaluation
+Phase 14 — UI
+Phase 15 — Integration
+Phase 16 — Testing
+Phase 17 — Documentation and final presentation
+
+For every phase specify:
+
+- Objective
+- Tasks
+- Files/modules affected
+- Expected output
+- Validation criteria
+- Dependencies
+
+Do not allow later phases to begin before their required dependencies are available.
+
+==================================================
+DESIGN.md
+==================================================
+
+Design a simple tourism-focused interface.
+
+Include:
+
+1. Visual concept
+2. Color palette
+3. Typography
+4. Layout
+5. Input area
+6. Translation direction selector
+7. Tourism category
+8. Translation result
+9. Entity display
+10. Error states
+11. Loading states
+12. Mobile responsiveness
+13. Malayalam Unicode support
+14. Manglish display
+15. Accessibility
+
+Main interaction:
+
+Translation Direction:
+[ English → Malayalam ▼ ]
+
+Input:
+[ Enter your sentence ]
+
+[ Translate ]
+
+Output:
+[ Malayalam translation ]
+
+Detected Category:
+Transportation
+
+Detected Entities:
+Location: Railway Station
+
+The UI must support switching between:
+
+English → Malayalam
+Malayalam → English
+Manglish → English
+English → Manglish
+
+Do not overdesign the application.
+
+This is an academic NLP mini-project.
+
+==================================================
+GENERAL RULE
+==================================================
+
+Do not build the entire application while creating these documents.
+
+First create only the documentation.
+
+The documentation must be internally consistent.
+
+Do not invent:
+- dataset sizes
+- model accuracy
+- BLEU scores
+- translation quality
+- API availability
+- completed features
+
+Clearly mark future implementation items as planned.
+
+The final documentation should be practical enough that another AI coding assistant can implement the project phase by phase without guessing requirements.

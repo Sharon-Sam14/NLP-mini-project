@@ -1,0 +1,21 @@
+# Malayalam Tourist Translation & Transliteration System — dependencies
+# Verified installed versions on the dev machine: Python 3.13.5, Windows,
+# 2026-09-30. Install:  pip install -r requirements.txt
+#
+# NOTE — IndicTransToolkit cannot be installed with pip on Windows (no wheels;
+# Cython extension needs MSVC, which is absent on this machine). A pure-Python
+# port is vendored at vendor/IndicTransToolkit/ — see its README.md.
+
+torch==2.12.0                # CPU build on this machine; code auto-detects CUDA/CPU (do NOT upgrade globally)
+transformers==5.12.1         # v5 -> checkpoint code needs scripts/patch_model_files.py (see docs/MODEL.md)
+huggingface_hub==1.19.0      # `hf` CLI for downloading datasets/checkpoints
+sentencepiece==0.2.2         # IndicTrans2 tokenizer backend (model.SRC / model.TGT)
+pandas==2.2.3
+pyarrow==25.0.0              # reads Samanantar parquet directly; `datasets` package intentionally NOT used
+numpy==2.3.3
+nltk==3.10.3
+sacrebleu==2.6.0             # BLEU/chrF for evaluation (Phase: evaluation)
+sacremoses==0.2.0            # English detokenization used by IndicProcessor
+indic-nlp-library-itt==0.1.1 # provides indicnlp.* used by vendor/IndicTransToolkit
+matplotlib==3.10.8           # notebooks / word cloud (Experiment 9)
+streamlit==1.59.1            # UI (later phase)

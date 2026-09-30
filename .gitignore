@@ -1,0 +1,18 @@
+# Local artifacts — never push to GitHub (100MB/file hard limit).
+# Documented in docs/DATASET.md and docs/MODEL.md; re-downloadable via the
+# commands recorded there.
+data/
+models/
+
+# Local-only / unrelated content
+.kilo/
+.opencode/
+vendor/itto-src/
+vendor/processor_pure.py
+vendor/processor.pyx
+
+# Python / tooling
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+graphify-out/
